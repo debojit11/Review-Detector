@@ -57,9 +57,11 @@ The system automatically:
 **Continuous Learning**: Feedback samples added weekly  
 
 ## 📂 Repository Structure  
+```
 ├── app.py                     # Gradio demo with feedback    
 ├── requirements.txt           # Dependencies    
 └── README.md                  # This file   
+```
 
 ## 🤝 Contributing
 1. Report false predictions via the demo
