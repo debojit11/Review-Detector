@@ -56,8 +56,7 @@ The system automatically:
 **Training**: 3 epochs (final train_loss: 0.0005)  
 **Continuous Learning**: Feedback samples added weekly  
 
-## 📂 Repository Structure
-.
+## 📂 Repository Structure  
 ├── app.py                     # Gradio demo with feedback    
 ├── requirements.txt           # Dependencies    
 └── README.md                  # This file   
