@@ -34,6 +34,7 @@ print(result)  # {'label': 'FAKE', 'score': 0.99}
 
 ### Local Demo with Feedback
 ```bash
+python -m venv venv
 pip install gradio transformers datasets huggingface-hub
 python app.py
 ```
