@@ -59,7 +59,8 @@ The system automatically:
 ## 📂 Repository Structure  
 ```
 ├── app.py                     # Gradio demo with feedback    
-├── requirements.txt           # Dependencies    
+├── requirements.txt           # Dependencies 
+├── training.ipynb             # training notebook  
 └── README.md                  # This file   
 ```
 
