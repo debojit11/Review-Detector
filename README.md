@@ -51,10 +51,10 @@ The system automatically:
 | "Perfect in every way!"          | "Fake" |
 
 ## 🧠 Training Details
-- **Architecture**: DistilBERT-base
-**Dataset**: 40k reviews (50% real, 50% fake)
-**Training**: 3 epochs (final train_loss: 0.0005)
-**Continuous Learning**: Feedback samples added weekly
+**Architecture**: DistilBERT-base  
+**Dataset**: 40k reviews (50% real, 50% fake)  
+**Training**: 3 epochs (final train_loss: 0.0005)  
+**Continuous Learning**: Feedback samples added weekly  
 
 ## 📂 Repository Structure
 .
