@@ -58,9 +58,9 @@ The system automatically:
 
 ## 📂 Repository Structure
 .
-├── app.py                     # Gradio demo with feedback
-├── requirements.txt           # Dependencies
-└── README.md                  # This file
+├── app.py                     # Gradio demo with feedback    
+├── requirements.txt           # Dependencies    
+└── README.md                  # This file   
 
 ## 🤝 Contributing
 1. Report false predictions via the demo
