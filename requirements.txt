@@ -1,0 +1,7 @@
+# requirements.txt
+transformers
+torch
+gradio
+pandas
+datasets
+huggingface_hub

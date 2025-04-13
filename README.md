@@ -1,51 +1,67 @@
-# ✍️ Handwriting Style Generator
+# Fake Review Detection Model
 
-This is a simple demo app that converts typed characters (A-Z) into a handwritten-style output using an **autoencoder** trained on grayscale images of handwritten characters.
+[![HuggingFace Model](https://img.shields.io/badge/🤗%20Model-Check%20on%20Hub-blue)](https://huggingface.co/debojit01/fake-review-detector)
+[![Demo](https://img.shields.io/badge/🎮%20Live-Try%20Demo-red)](https://huggingface.co/spaces/debojit01/fake-review-detector-demo)
 
-Built with:
-- 🧠 PyTorch (Autoencoder model)
-- 🎨 PIL for image rendering
-- ⚙️ Gradio for an interactive UI
+DistilBERT model achieving **99% accuracy** in detecting computer-generated product reviews, now with user feedback integration for continuous improvement.
 
-## 🚀 How It Works
+## ✨ New Features
+- **User Feedback System**: Collects misclassified samples for model improvement
+- **Hugging Face Dataset Integration**: Automatically saves feedback to [dataset repo](https://huggingface.co/datasets/debojit01/fake-review-dataset)
+- **Enhanced Demo**: Interactive Gradio interface with prediction verification
 
-1. You type a character (like "A" or "b").
-2. It's rendered as a grayscale image.
-3. The image is passed through a trained autoencoder:
-   - **Encoder** compresses the image into a latent representation.
-   - **Decoder** reconstructs it in the original handwriting style.
-4. You get a new handwritten-looking version of the character!
+## 📊 Performance
+| Metric     | Real | Fake |
+|------------|------|------|
+| Precision  | 0.98 | 0.99 |
+| Recall     | 0.99 | 0.98 |
+| F1-Score   | 0.99 | 0.99 |
 
-Currently trained on 28×28 grayscale images (MNIST-style).  
-🔄 Planning to retrain on higher-resolution custom data (128×128) for better quality soon.
+## 🚀 Usage
 
-## 🖥️ Run Locally
+### Python Inference
+```python
+from transformers import pipeline
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/yourusername/handwriting-style-generator.git
-   cd handwriting-style-generator
-   ```
+detector = pipeline(
+    "text-classification",
+    model="debojit01/fake-review-detector"
+)
 
-2. Create a virtual environment & install dependencies:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # or venv\Scripts\activate on Windows
-   pip install -r requirements.txt
-   ```
+result = detector("This product changed my life!")
+print(result)  # {'label': 'FAKE', 'score': 0.99}
+```
 
-3. Make sure your `autoencoder_model.pt` is in the project folder.
+### Local Demo with Feedback
+```bash
+pip install gradio transformers datasets huggingface-hub
+python app.py
+```
 
-4. Launch the app:
-   ```bash
-   python app.py
-   ```
+## 🛠 Feedback Integration
+The system automatically:
+- Lets users flag incorrect predictions
+- Saves corrected labels to Hugging Face dataset
+- Formats data for retraining:
+```csv
+text,label
+"Great product but poor battery","Real"
+"Perfect in every way!","Fake"
+```
 
-## 🛠️ To Do
-- Retrain the model on 128×128 handwriting images.
-- Add support for full word-to-handwriting generation.
-- Improve UI with style picker for different writers.
+## 🧠 Training Details
+- **Architecture**: DistilBERT-base
+**Dataset**: 40k reviews (50% real, 50% fake)
+**Training**: 3 epochs (final train_loss: 0.0005)
+**Continuous Learning**: Feedback samples added weekly
 
----
+## 📂 Repository Structure
+.
+├── app.py                     # Gradio demo with feedback
+├── requirements.txt           # Dependencies
+└── README.md                  # This file
 
-Made with PyTorch.
+## 🤝 Contributing
+1. Report false predictions via the demo
+2. Submit PRs for model improvements
+3. Add to our feedback dataset
