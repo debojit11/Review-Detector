@@ -44,10 +44,10 @@ The system automatically:
 - Lets users flag incorrect predictions
 - Saves corrected labels to Hugging Face dataset
 - Formats data for retraining:
-| text                        | label |
-| :-------------------------- | :---- |
+| text                             |  label |
+| :--------------------------------| :----  |
 | "Great product but poor battery" | "Real" |
-| "Perfect in every way!"       | "Fake" |
+| "Perfect in every way!"          | "Fake" |
 
 ## 🧠 Training Details
 - **Architecture**: DistilBERT-base
